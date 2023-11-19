@@ -1,4 +1,4 @@
-package com.example.mobile_p12
+package com.example.mobile_p12.tugas.homepage
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
@@ -7,19 +7,16 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-
+import com.example.mobile_p12.tugas.auth.User
 
 @Dao
-interface NoteDao {
+interface BukuDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insert(note: Note)
-
+    fun insert(buku: Buku)
     @Update
-    fun update(note: Note)
+    fun update(buku: Buku)
 
     @Delete
-    fun delete(note: Note)
+    fun delete(buku: Buku)
 
-    @get:Query("SELECT * FROM note_table ORDER BY id ASC")
-    val allNotes : LiveData<List<Note>>
 }
