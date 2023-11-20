@@ -19,4 +19,6 @@ interface BukuDao {
     @Delete
     fun delete(buku: Buku)
 
+    @Query("SELECT * FROM buku_table ORDER BY id ASC")
+    fun getAllBukus(): LiveData<List<Buku>>
 }

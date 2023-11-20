@@ -21,6 +21,6 @@ data class Buku (
     val genre: String,
 
     @ColumnInfo(name = "harga")
-    val harga : String
+    val harga : Int
 
 )

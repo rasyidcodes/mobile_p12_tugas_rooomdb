@@ -3,6 +3,7 @@ package com.example.mobile_p12.tugas.auth
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.example.mobile_p12.databinding.ActivitySignUpBinding
 import com.example.mobile_p12.tugas.AppDatabase
@@ -51,6 +52,7 @@ class SignUpActivity : AppCompatActivity() {
                 // Handle the exception and show a Toast with an error message
                 runOnUiThread {
                     showToast("Failed to insert data")
+                    Log.d("PEH",e.message.toString())
                 }
             }
         }
