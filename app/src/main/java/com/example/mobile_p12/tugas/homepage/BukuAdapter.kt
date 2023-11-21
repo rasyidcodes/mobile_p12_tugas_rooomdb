@@ -1,6 +1,8 @@
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,12 +10,14 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mobile_p12.R
 import com.example.mobile_p12.tugas.AppDatabase
+import com.example.mobile_p12.tugas.editbuku.EditBukuActivity
 import com.example.mobile_p12.tugas.homepage.Buku
 import com.example.mobile_p12.tugas.homepage.BukuDao
 import org.w3c.dom.Text
@@ -49,9 +53,36 @@ class BukuAdapter : RecyclerView.Adapter<BukuAdapter.BukuViewHolder>() {
             Toast.makeText(holder.itemView.context, currentBuku.id.toString(), Toast.LENGTH_SHORT).show()
         }
 
+
+        holder.btEdit.setOnClickListener{
+            executorService.execute{
+                try {
+                    val intent = Intent(holder.itemView.context, EditBukuActivity::class.java)
+                    intent.putExtra("id", currentBuku.id.toString())
+                    intent.putExtra("buku", currentBuku.buku)
+                    intent.putExtra("penulis", currentBuku.penulis)
+                    intent.putExtra("genre", currentBuku.genre)
+                    intent.putExtra("harga", currentBuku.harga.toString())
+                    holder.itemView.context.startActivity(intent)
+                }catch (e: Exception){
+
+                }
+            }
+        }
+
         holder.btDelete.setOnClickListener{
             showYesNoAlertDialog(holder.itemView.context, "Apakah anda yakin akan menghapus " + currentBuku.buku, DialogInterface.OnClickListener { _, _ ->
                 Toast.makeText(holder.itemView.context, "del" + currentBuku.id.toString(), Toast.LENGTH_SHORT).show()
+
+                executorService.execute{
+                    executorService.execute {
+                        try {
+                            mBukuDao.delete(currentBuku)
+                        } catch (e: Exception) {
+//
+                        }
+                    }
+                }
             })
         }
     }

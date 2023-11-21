@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp"
+    android:orientation="vertical"
+    tools:context=".tugas.addbuku.AddBukuActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="16dp">
+
+    <TextView
+        android:id="@+id/homepageTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tambah Buku"
+        android:textSize="40dp"
+        />
+
+    <EditText
+        android:id="@+id/addETBuku"
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nama Buku"/>
+
+    <EditText
+        android:id="@+id/addETPenulis"
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Penulis"/>
+
+    <EditText
+        android:id="@+id/addETGenre"
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Genre"/>
+
+    <EditText
+        android:id="@+id/addETHarga"
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Harga"/>
+
+    <Button
+        android:layout_marginTop="30dp"
+        android:id="@+id/addBTTambah"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tambah"
+        android:textAllCaps="false"/>
+    </LinearLayout>
+</LinearLayout>

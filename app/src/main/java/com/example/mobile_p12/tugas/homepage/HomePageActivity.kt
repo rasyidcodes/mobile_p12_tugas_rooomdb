@@ -2,6 +2,7 @@ package com.example.mobile_p12.tugas.homepage
 
 import BukuAdapter
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.mobile_p12.R
 import com.example.mobile_p12.databinding.ActivityHomePageBinding
 import com.example.mobile_p12.tugas.AppDatabase
+import com.example.mobile_p12.tugas.addbuku.AddBukuActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -46,22 +48,8 @@ class HomePageActivity : AppCompatActivity() {
         with(binding){
 
             addButton.setOnClickListener{
-                executorService.execute {
-                    try {
-                        mBukuDao.insert(Buku(buku = "this book", penulis = "penulis ini", genre = "gennx", harga = 1000))
-
-                        // Run the UI code on the main thread to display the Toast
-                        runOnUiThread {
-                            showToast(this@HomePageActivity, "sukses")
-                        }
-                    } catch (e: Exception) {
-                        // Handle the exception and show a Toast with an error message
-                        runOnUiThread {
-                            showToast(this@HomePageActivity, "Failed")
-                            Log.d("PEH",e.message.toString())
-                        }
-                    }
-                }
+                val intent = Intent(this@HomePageActivity, AddBukuActivity::class.java)
+                startActivity(intent)
             }
         }
 
