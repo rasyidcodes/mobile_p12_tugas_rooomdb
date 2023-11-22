@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,6 +7,13 @@
     android:orientation="vertical"
     tools:context=".tugas.auth.SignUpActivity">
 
+    <LinearLayout
+        android:layout_margin="16dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,6 +22,7 @@
         android:textAlignment="center"/>
 
     <EditText
+        android:layout_marginTop="40dp"
         android:id="@+id/signup_et_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,17 +35,20 @@
         android:hint="password"/>
 
     <Button
+        android:layout_marginTop="40dp"
         android:id="@+id/signup_bt_signup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Sign Up"
         android:textAllCaps="false"/>
 
-    <Button
+    <TextView
+        android:textAlignment="center"
+        android:layout_marginTop="16dp"
         android:id="@+id/signup_bt_to_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="to Login"
+        android:text="Login"
         android:textAllCaps="false"/>
-
-</LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

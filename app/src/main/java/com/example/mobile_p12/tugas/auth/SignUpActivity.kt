@@ -7,6 +7,7 @@ import android.util.Log
 import android.widget.Toast
 import com.example.mobile_p12.databinding.ActivitySignUpBinding
 import com.example.mobile_p12.tugas.AppDatabase
+import com.example.mobile_p12.tugas.homepage.HomePageActivity
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
@@ -29,6 +30,8 @@ class SignUpActivity : AppCompatActivity() {
                 insert(
                     User(email=signupEtEmail.text.toString(), password=signupEtPassword.text.toString())
                 )
+
+
             }
 
             signupBtToLogin.setOnClickListener{
@@ -46,8 +49,12 @@ class SignUpActivity : AppCompatActivity() {
 
                 // Run the UI code on the main thread to display the Toast
                 runOnUiThread {
-                    showToast("Data inserted successfully")
+                    showToast("User registered successfully")
                 }
+
+                val intent = Intent(this@SignUpActivity, LoginActivity::class.java)
+                startActivity(intent)
+
             } catch (e: Exception) {
                 // Handle the exception and show a Toast with an error message
                 runOnUiThread {

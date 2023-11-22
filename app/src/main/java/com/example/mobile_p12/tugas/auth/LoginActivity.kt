@@ -8,6 +8,7 @@ import com.example.mobile_p12.R
 import com.example.mobile_p12.databinding.ActivityLoginBinding
 import com.example.mobile_p12.databinding.ActivitySignUpBinding
 import com.example.mobile_p12.tugas.AppDatabase
+import com.example.mobile_p12.tugas.homepage.HomePageActivity
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
@@ -31,6 +32,8 @@ class LoginActivity : AppCompatActivity() {
                 loginUser(
                     User(email=loginEtEmail.text.toString(), password=loginEtPassword.text.toString())
                 )
+
+
             }
             loginBtToSignup.setOnClickListener{
                 val intent = Intent(this@LoginActivity, SignUpActivity::class.java)
@@ -49,11 +52,8 @@ class LoginActivity : AppCompatActivity() {
                     runOnUiThread {
                         showToast("Login successfully")
                     }
-
-                    // Add your code here to navigate to the next activity if needed
-                    // For example:
-                    // val intent = Intent(this@YourCurrentActivity, YourNextActivity::class.java)
-                    // startActivity(intent)
+                    val intent = Intent(this@LoginActivity, HomePageActivity::class.java)
+                    startActivity(intent)
                 } else {
                     runOnUiThread {
                         showToast("Invalid email or password")

@@ -22,13 +22,13 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".tugas.auth.SignUpActivity"
+            android:name=".tugas.homepage.HomePageActivity"
             android:exported="false" />
         <activity
             android:name=".tugas.auth.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".tugas.homepage.HomePageActivity"
+            android:name=".tugas.auth.SignUpActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -29,7 +29,7 @@ class EditBukuActivity : AppCompatActivity() {
         val db = AppDatabase.getDatabase(this)
         mBukuDao = db!!.BukuDao()!!
 
-        val id = intent.getStringExtra("id")
+        val id = intent.getStringExtra("id")?.toIntOrNull()
         val bukures = intent.getStringExtra("buku")
         val penulisres = intent.getStringExtra("penulis")
         val genreres = intent.getStringExtra("genre")
@@ -52,9 +52,12 @@ class EditBukuActivity : AppCompatActivity() {
                 }else{
                     try {
                         val integerHarga = harga.toInt()
+
                         executorService.execute {
                             try {
-                                mBukuDao.update(Buku(buku = buku, penulis = penulis, genre =  genre, harga = integerHarga))
+                                id?.let {
+                                    mBukuDao.update(Buku(id= id ,buku = buku, penulis = penulis, genre =  genre, harga = integerHarga))
+                                }
 
 
                                 // Run the UI code on the main thread to display the Toast
